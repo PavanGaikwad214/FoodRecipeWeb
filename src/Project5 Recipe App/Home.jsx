@@ -43,7 +43,7 @@ const Home = ({search}) => {
      {data2.map((item)=>{
         return(
              <div className='homediv' key={item.idMeal}>
-                <img src={item.strMealThumb} height={'250px'} width={'250px'} style={{ marginTop:'15px'}} onClick={()=>navigate('/aboutmeals',{state:{ item}})} alt="" />
+                <img src={item.strMealThumb} onClick={()=>navigate('/aboutmeals',{state:{ item}})} alt="" />
                 <p>{item.strMeal}</p>
             </div>
         )

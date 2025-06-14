@@ -1,17 +1,17 @@
 
 .HomeSec {
-    height: auto;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    overflow-x: scroll;
-    margin-left: 10px;
+   display: flex;
+   flex-wrap: nowrap;
+   overflow-x: auto;
+   padding: 0 10px;
+   gap: 15px;
+   scroll-snap-type: x mandatory;
+}
+
+.homediv {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
     text-align: center;
-    gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: white;
-    color: black;
 }
 
 .HomeSec::-webkit-scrollbar {
@@ -33,3 +33,53 @@
     transition: .5s;
     transform: scale(1.1);
 }
+
+
+.homediv img, .home-img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+@media (max-width: 500px) {
+  .HomeSec {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 0 10px;
+    gap: 10px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .homediv {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    width: 140px;
+    text-align: center;
+  }
+
+  .homediv img {
+    width: 100%;
+    max-width: 140px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  #cat,
+  #bat {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .homediv p {
+    font-size: 0.85rem;
+  }
+
+  .Home {
+    padding: 0 10px;
+  }
+}
+
