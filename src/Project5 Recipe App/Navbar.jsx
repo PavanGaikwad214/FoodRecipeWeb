@@ -7,7 +7,12 @@ const Navbar = ({setSearch}) => {
      <nav className='nav'>
         <article className='navart'>
           <Link to = {'/'}>Home</Link>
-          <input onChange={(e)=>setSearch(e.target.value)} type="search" placeholder='Search Food' />
+          <input
+           onChange={(e)=>setSearch(e.target.value)} 
+           type="search"
+            placeholder='Search Food' 
+            className='nav-input'
+          />
         </article>
      </nav>
     </div>

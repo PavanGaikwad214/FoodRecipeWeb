@@ -1,41 +1,43 @@
 import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom';
+import './About.css'; // Add this line
+
 const About = () => {
-    const location = useLocation()
-    const specificFood = location.state.item
-    console.log(specificFood);
+  const location = useLocation();
+  const specificFood = location.state.item;
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
+  const [meals, setMeals] = useState([]);
 
+  useEffect(() => {
+    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${specificFood.strCategory}`)
+      .then((res) => res.json())
+      .then((d) => setMeals(d.meals));
+  }, []);
 
-    const[meals,setMeals]=useState([])
-    useEffect(()=>{
-      fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${specificFood.strCategory}`)
-      .then(res=>res.json())
-      .then(d=>setMeals(d.meals))
-    },[])
   return (
-    <div className='about'>
-      <div className="about_content" style={{ marginTop:'50px', marginBottom:'50px'}}>
-        <div className="img" style={{height:'60%', width:'100%', alignItems:"center", justifyContent:'center'}}>
-             <img src={specificFood.strCategoryThumb} style={{height:'300px', width:'300px', marginLeft:'40%'}}/><img/>         
-            <p style={{ textAlign:'justify', width:'50%',marginLeft:'25%'}}>{specificFood.strCategoryDescription}</p>
-        </div>
+    <div className="about">
+      <div className="about-content">
+        <img className="about-img" src={specificFood.strCategoryThumb} alt={specificFood.strCategory} />
+        <p className="about-desc">{specificFood.strCategoryDescription}</p>
       </div>
-      <h1>Related Food :-</h1>
-      <section className='HomeSec'>
-     {meals.map((item)=>{
-        return(
-             <div key={item.idMeal}>
-                <img  onClick={()=>navigate('/aboutmeals',{state:{ item}})} src={item.strMealThumb} style={{height:'200px', width:'250px', color:'white', objectFit:'cover', marginTop:'25px',borderRadius:'50%'}} />
-                <p>{item.strMeal}</p>
-            </div>
-        )
-        
-     })}
-     </section>
-    </div>
-  )
-}
 
-export default About
+      <h1 className="related-heading">Related Food:</h1>
+      <section className="related-meals">
+        {meals.map((item) => (
+          <div className="related-card" key={item.idMeal}>
+            <img
+              src={item.strMealThumb}
+              alt={item.strMeal}
+              onClick={() => navigate('/aboutmeals', { state: { item } })}
+              className="related-img"
+            />
+            <p className="related-name">{item.strMeal}</p>
+          </div>
+        ))}
+      </section>
+    </div>
+  );
+};
+
+export default About;

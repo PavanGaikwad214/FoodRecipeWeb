@@ -1,0 +1,92 @@
+.aboutmeals-container {
+  padding: 30px 20px;
+  background-color: #fff;
+  color: #333;
+}
+
+.aboutmeals-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  align-items: flex-start;
+}
+
+.meal-img {
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.meal-info {
+  max-width: 600px;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.label {
+  font-weight: bold;
+  color: red;
+  font-size: 1.05rem;
+}
+
+.instructions {
+  margin-top: 15px;
+  color: #555;
+}
+
+.video-wrapper {
+  margin-top: 30px;
+  max-width: 100%;
+}
+
+.related-heading {
+  margin-top: 40px;
+  font-size: 1.8rem;
+  color: #222;
+}
+
+/* Reuse .HomeSec from your main CSS */
+/* Optional: Adjust if needed */
+.HomeSec {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 20px 0;
+}
+
+.homediv img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.homediv img:hover {
+  transform: scale(1.05);
+}
+
+/* 📱 Responsive */
+@media (max-width: 500px) {
+  .meal-img {
+    width: 90%;
+  }
+
+  .meal-info {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+
+  .label {
+    font-size: 1rem;
+  }
+
+  .homediv img {
+    width: 150px;
+    height: 150px;
+  }
+}
