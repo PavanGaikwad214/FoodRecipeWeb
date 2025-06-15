@@ -1,58 +1,81 @@
+.Header {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
 .Hero {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 10px;
-    height: auto;
-    flex-wrap: wrap; /* NEW: Allows stacking on mobile */
-    gap: 20px;
-    padding: 20px;
-}
-
-.HeroImgWrapper {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.HeroImg {
-    width: 100%;
-    max-width: 280px;
-    height: auto;
-    border-radius: 10%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 20px;
+  min-height: 300px;
 }
 
 .HeroTitle {
-    font-size: 2.5em;
-    text-align: center;
-    margin-bottom: 10px;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .HeroSubtitle {
-    font-size: 1.2em;
-    text-align: center;
+  font-size: 1.2em;
+  text-align: center;
 }
 
 .OrangeText {
-    text-align: center;
-    color: orange;
+  color: orange;
 }
 
-@media (max-width: 500px) {
+.Header1 {
+  max-width: 400px;
+  text-align: center;
+}
+
+.HeroImageWrapper {
+  flex-shrink: 0;
+}
+
+.HeroImage {
+  height: auto;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10%;
+  object-fit: cover;
+}
+
+/* Media Queries for Laptop and Below */
+@media (max-width: 1024px) {
   .Hero {
     flex-direction: column;
     text-align: center;
   }
 
+  .HeroImage {
+    max-width: 250px;
+  }
+
   .HeroTitle {
-    font-size: 1.8em;
+    font-size: 2em;
   }
 
   .HeroSubtitle {
     font-size: 1em;
   }
+}
 
-  .HeroImg {
+@media (max-width: 600px) {
+  .HeroTitle {
+    font-size: 1.6em;
+  }
+
+  .HeroSubtitle {
+    font-size: 0.9em;
+  }
+
+  .HeroImage {
     max-width: 200px;
   }
 }
